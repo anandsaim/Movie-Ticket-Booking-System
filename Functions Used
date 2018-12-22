@@ -1,0 +1,5 @@
+void insert_details();//to insert the movie details
+void viewAll(); // to view all the data
+void find(); // to find the data
+void book_ticket(); //to book the tickets
+void old_record(); //to view the old records of users and the booked tickets
