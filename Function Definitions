@@ -1,3 +1,4 @@
+
 void insert_details()
 {
 
@@ -121,3 +122,98 @@ void book_ticket()
 
 	}
 	fclose(fp);
+
+	//display ends
+	printf("\n FOR BOOKING TICKETS,PLEASE ENTER THE MOVIE CODE OR THE FIRST LETTER OF THE MOVIE NAME\n");
+	printf("\n Enter Movie Code :");
+	scanf("%s",movie_code);
+
+	fp = fopen("datas.c","r");
+	if(fp == NULL)
+	{
+		printf("file does not found !");
+		exit(1);
+
+	}
+	else
+	{
+		while(getc(fp) != EOF)
+		{
+			fscanf(fp,"%s %s %s %ld",b.code,b.name,b.date,&b.cost);
+			if(strcmp(b.code,movie_code) == 0)
+			{
+				//printf("%s / %s / %s / %d\n",b.code,b.name,b.date,b.cost);
+				printf("\n Record Found\n");
+				printf("\n Code ::%s",b.code);
+				printf("\n Movie name ::%s",b.name);
+				printf("\n date name ::%s",b.date);
+				printf("\n\Price of ticket::%ld",b.cost);
+			}
+		}
+
+	}
+	printf("\n* Please Fill the Foll. Details  *");
+	printf("\n Name :");
+	scanf("%s",name);
+	printf("\n Contact Number :");
+	scanf("%ld",&mobile);
+	printf("\n Total No. of Seats :");
+	scanf("%ld",&total_seat);
+
+
+	total_amount = b.cost * total_seat;
+
+	printf("\n ENJOY YOUR MOVIE \n");
+	printf("\n Name : %s",name);
+	printf("\n Contact Number : %ld",mobile);
+	printf("\n Name of the Movie : %s",b.name);
+	printf("\n Total Seats : %ld",total_seat);
+	printf("\n Cost per Ticket : %d",b.cost);
+	printf("\n Total Amount : %d",total_amount);
+
+
+	ufp=fopen("OLDTRANS.c","a");
+	if(ufp == NULL)
+	{
+		printf("FIle not Found");
+	}
+	else
+	{
+		fprintf(ufp,"\n%s\n%ld\n%d\n%d\n%s\n%d",name,mobile,total_seat,total_amount,b.name,b.cost);
+		printf("\n Record inserted Sucessfully to the old record file");
+	}
+		printf("\n");
+	fclose(ufp);
+	fclose(fp);
+getch();
+}
+//for view all user transections
+void old_record()
+{
+	char ch;
+	FILE *fp;
+
+
+
+	fp = fopen("OLDTRANS.c","r");
+	if(fp == NULL)
+	{
+		printf("file does not found !");
+		exit(1);
+
+	}
+	else
+	{
+
+		while( ( ch = fgetc(fp) ) != EOF )
+		printf("%c",ch);
+
+	}
+	;
+	fclose(fp);
+
+
+
+
+
+}
