@@ -1,0 +1,123 @@
+void insert_details()
+{
+
+	FILE *fp;
+	struct book b;
+	clrscr();
+	printf("\n Enter the Movie Code :- ");
+	scanf("%s",&b.code);
+	printf("\n Enter the Name of the Movie :- ");
+	scanf("%s",&b.name);
+	printf("\n Enter the Release Date:- ");
+	scanf("%s",&b.date);
+	printf("\n Enter the Ticket Price:- ");
+	scanf("%ld",&b.cost);
+
+	fp=fopen("datas.c","a");
+
+	if(fp == NULL)
+	{
+		printf("File not Found");
+	}
+	else
+	{
+		fprintf(fp,"\n%s\n%s\n%s\n%ld",b.code,b.name,b.date,b.cost);
+		printf("Record insert Sucessfull");
+	}
+
+		printf("\n");
+	getch();
+	fclose(fp);
+}
+void find()
+{
+	struct book b;
+	FILE *fp;
+
+	char ch[20];
+	clrscr();
+	printf("Enter the movie code :");
+	scanf("%s",ch);
+
+	fp = fopen("datas.c","r");
+	if(fp == NULL)
+	{
+		printf("file does not found !");
+		exit(1);
+
+	}
+	else
+	{
+		while(getc(fp) != EOF)
+		{
+			fscanf(fp,"\n%s\n%s\n%s\n%ld",b.code,b.name,b.date,&b.cost);
+			if(strcmp(b.code,ch) == 0)
+			{
+				;
+				printf("\n Record Found !!\n");
+				printf("\nCode ::%s",b.code);
+				printf("\nMovie name ::%s",b.name);
+				printf("\nMovie date ::%s",b.date);
+				printf("\nPrice of ticket ::%ld",b.cost);
+			}
+		}
+
+	}
+	getch();
+	fclose(fp);
+}
+void viewAll()
+{
+	char ch;
+	FILE *fp;
+
+	fp = fopen("datas.c","r");
+	if(fp == NULL)
+	{
+		printf("file does not found !");
+		exit(1);
+
+	}
+	else
+	{
+
+		while( ( ch = fgetc(fp) ) != EOF )
+		printf("%c",ch);
+
+	}
+	;
+	fclose(fp);
+}
+//for ticket booking
+void book_ticket()
+{
+ struct book b;
+	FILE *fp;
+
+	FILE *ufp;
+
+	int total_seat,total_amount;
+	long int mobile;
+
+	char name[20];
+
+
+	char ch; //used in displaying all movies
+	char movie_code[20]; // usedfor searching
+	clrscr();
+	// to disply all moives by default for movie code
+	fp = fopen("datas.c","r");
+	if(fp == NULL)
+	{
+		printf("file does not found !");
+		exit(1);
+
+	}
+	else
+	{
+
+		while( ( ch = fgetc(fp) ) != EOF )
+		printf("%c",ch);
+
+	}
+	fclose(fp);
