@@ -1,0 +1,64 @@
+void main()
+{
+
+	 int X;
+	clrscr();
+	do{
+	printf("\n================================================================================");
+	printf("\                          MOVIE TICKETS GENERATING SYSTEM" );
+	printf("\                                                  A MINI-PROJECT BY M.SAI ANAND");
+	printf("\n                                  B3 SEC.,I YEAR");
+	printf("\n                  DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING");
+	printf("\n================================================================================");
+
+	printf("\nPress <1> Insert A Movie");
+	printf("\nPress <2> View All Movies");
+	printf("\nPress <3> Find A Movie ");
+	printf("\nPress <4> Book A Ticket");
+	printf("\nPress <5> View All Transactions");
+	printf("\nPress <0> Exit ");
+
+	printf("\nEnter your Choice ::");
+	scanf("%d",&X);
+
+	switch (X)
+	{
+		case 1 :
+		insert_details();
+		getch();
+		break;
+		case 2:
+		viewAll();
+		getch();
+		break;
+
+		case 3:
+		find();
+		getch();
+		break;
+
+		case 4:
+		book_ticket();
+		getch();
+		break;
+
+		case 5:
+		old_record();
+		getch();
+		break;
+
+		case 0:
+		exit(0);
+		getch();
+		break;
+
+		default:
+		printf("Wrong choice !");
+		break;
+	}
+ }while(X!=0);
+
+
+
+
+}
