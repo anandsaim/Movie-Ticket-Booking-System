@@ -1,0 +1,11 @@
+struct book
+{
+	char code[20];
+	char name[20];
+	char date[20];
+	long int cost;
+
+
+}b;
+
+long int seat = 60 ;
